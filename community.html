@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Community Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-shape shape1"></div>
+  <div class="bg-shape shape2"></div>
+  <div class="bg-shape shape3"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <div class="logo-badge">CB</div>
+      <div>
+        <h1>Student Community Board</h1>
+        <p>Share problems, updates, and opportunities</p>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="buddy.html">Buddy Matcher</a>
+      <a href="micro.html">Micro Consultations</a>
+    </nav>
+
+    <a class="cta-btn" href="index.html">Back</a>
+  </header>
+
+  <main class="hero">
+    <section class="hero-content">
+      <span class="tag">Public student help board</span>
+      <h2>Post opportunities, ask for help, and connect with other students.</h2>
+      <p>
+        Use this board to share internships, hackathons, events, doubts, and campus problems.
+        Everyone can see the posts and respond quickly.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#postForm" class="primary-btn">Create Post</a>
+        <a href="#posts" class="secondary-btn">View Posts</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h3>24/7</h3>
+          <p>Public sharing</p>
+        </div>
+        <div class="stat-card">
+          <h3>Fast</h3>
+          <p>Easy posting</p>
+        </div>
+        <div class="stat-card">
+          <h3>Open</h3>
+          <p>For all students</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-visual">
+      <div class="glass-card main-card">
+        <div class="card-top">
+          <span class="pulse"></span>
+          <h3>Trending Topics</h3>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="mini-card accent1">
+            <h4>Internships</h4>
+            <p>Share openings and deadlines.</p>
+          </div>
+          <div class="mini-card accent2">
+            <h4>Hackathons</h4>
+            <p>Post events and team invites.</p>
+          </div>
+          <div class="mini-card accent3">
+            <h4>Problems</h4>
+            <p>Ask for campus support.</p>
+          </div>
+          <div class="mini-card accent4">
+            <h4>Opportunities</h4>
+            <p>Scholarships, workshops, and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="features" id="postForm">
+    <h2>Share a Post</h2>
+    <div class="about-card glass-card">
+      <div class="post-form">
+        <input type="text" id="postTitle" placeholder="Post title" />
+        <select id="postCategory">
+          <option value="opportunity">Opportunity</option>
+          <option value="internship">Internship</option>
+          <option value="hackathon">Hackathon</option>
+          <option value="problem">Problem</option>
+          <option value="event">Event</option>
+        </select>
+        <textarea id="postDesc" rows="4" placeholder="Write your message here..."></textarea>
+        <button class="primary-btn" onclick="addPost()">Post Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="posts">
+    <h2>Community Posts</h2>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterPosts('all', this)">All</button>
+      <button class="filter-btn" onclick="filterPosts('opportunity', this)">Opportunities</button>
+      <button class="filter-btn" onclick="filterPosts('internship', this)">Internships</button>
+      <button class="filter-btn" onclick="filterPosts('hackathon', this)">Hackathons</button>
+      <button class="filter-btn" onclick="filterPosts('problem', this)">Problems</button>
+      <button class="filter-btn" onclick="filterPosts('event', this)">Events</button>
+    </div>
+
+    <div class="post-grid" id="postGrid">
+      <article class="post-card internship">
+        <span class="post-tag">Internship</span>
+        <h3>Web Development Internship</h3>
+        <p>Internship opening at a startup for frontend and UI design students.</p>
+        <small>Deadline: 25 July</small>
+      </article>
+
+      <article class="post-card hackathon">
+        <span class="post-tag">Hackathon</span>
+        <h3>AI Hackathon Team Needed</h3>
+        <p>Looking for 2 more members for an AI project hackathon this weekend.</p>
+        <small>Location: Campus Lab</small>
+      </article>
+
+      <article class="post-card problem">
+        <span class="post-tag">Problem</span>
+        <h3>Library Wi-Fi Issue</h3>
+        <p>Internet is slow in the library. Can someone from admin help fix it?</p>
+        <small>Posted by: Student A</small>
+      </article>
+
+      <article class="post-card opportunity">
+        <span class="post-tag">Opportunity</span>
+        <h3>Free Workshop on AI Tools</h3>
+        <p>Open workshop for students interested in generative AI and prompt design.</p>
+        <small>Date: Saturday, 4 PM</small>
+      </article>
+
+      <article class="post-card event">
+        <span class="post-tag">Event</span>
+        <h3>College Tech Fest Registration</h3>
+        <p>Registration is open for the annual tech fest and project expo.</p>
+        <small>Join before: Friday</small>
+      </article>
+
+      <article class="post-card internship">
+        <span class="post-tag">Internship</span>
+        <h3>Python Internship Alert</h3>
+        <p>Remote internship for Python learners with basic project knowledge.</p>
+        <small>Apply soon</small>
+      </article>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-card glass-card">
+      <h2>Why use this board?</h2>
+      <p>
+        This page gives students a simple public space to share useful information, ask for help,
+        and promote opportunities. It works like a campus notice board with a modern look.
+      </p>
+      <a href="index.html" class="secondary-btn">Back to Home</a>
+      <a href="buddy.html" class="primary-btn" style="margin-left: 10px;">Buddy Matcher</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Student Community Board</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function filterPosts(category, btn) {
+      const posts = document.querySelectorAll(".post-card");
+      const buttons = document.querySelectorAll(".filter-btn");
+
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      posts.forEach(post => {
+        if (category === "all" || post.classList.contains(category)) {
+          post.style.display = "block";
+        } else {
+          post.style.display = "none";
+        }
+      });
+    }
+
+    function addPost() {
+      const title = document.getElementById("postTitle").value.trim();
+      const category = document.getElementById("postCategory").value;
+      const desc = document.getElementById("postDesc").value.trim();
+
+      if (!title || !desc) {
+        alert("Please enter both title and description.");
+        return;
+      }
+
+      const grid = document.getElementById("postGrid");
+
+      const card = document.createElement("article");
+      card.className = `post-card ${category}`;
+      card.innerHTML = `
+        <span class="post-tag">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <small>Posted just now</small>
+      `;
+
+      grid.prepend(card);
+
+      document.getElementById("postTitle").value = "";
+      document
