@@ -420,3 +420,36 @@ footer {
     padding: 20px;
   }
 }
+.session-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session-card small {
+  color: rgba(9, 17, 31, 0.72);
+  font-weight: 600;
+}
+
+.share-btn {
+  margin-top: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(9, 17, 31, 0.9);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(9, 17, 31, 1);
+}
+
+@media (max-width: 640px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
