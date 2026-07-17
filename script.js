@@ -25,20 +25,3 @@ themeBtn.addEventListener("click", () => {
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-const cards = document.querySelectorAll(".mini-card");
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalText = document.getElementById("modalText");
-const closeBtn = document.getElementById("closeBtn");
-
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-    modalTitle.textContent = card.dataset.title;
-    modalText.textContent = card.dataset.info;
-    modal.style.display = "block";
-  });
-});
-
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
