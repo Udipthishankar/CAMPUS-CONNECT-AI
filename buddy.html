@@ -25,8 +25,8 @@
 
     <nav class="nav-links">
       <a href="index.html">Home</a>
-      <a href="#form">Match Form</a>
-      <a href="index.html">Campus Dashboard</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#past">Past</a>
     </nav>
 
     <a class="cta-btn" href="index.html">Back</a>
@@ -37,13 +37,13 @@
       <span class="tag">Match with the right campus buddy</span>
       <h2>Find students with similar interests, goals, and study time.</h2>
       <p>
-        Choose your department, skills, preferred timings, and interests. The app will suggest
-        a perfect study buddy for group work, exam prep, and projects.
+        Choose your department, skills, preferred timings, and interests. The app suggests
+        the best study buddy and lets you share upcoming session links instantly.
       </p>
 
       <div class="hero-actions">
-        <a href="#form" class="primary-btn">Start Matching</a>
-        <a href="index.html" class="secondary-btn">Campus Home</a>
+        <a href="#sessions" class="primary-btn">Upcoming Sessions</a>
+        <a href="#past" class="secondary-btn">Past Sessions</a>
       </div>
     </section>
 
@@ -51,10 +51,10 @@
       <div class="glass-card main-card">
         <div class="card-top">
           <span class="pulse"></span>
-          <h3>Buddy Match Form</h3>
+          <h3>Buddy Match Quick Info</h3>
         </div>
 
-        <div class="dashboard-grid" id="form">
+        <div class="dashboard-grid">
           <div class="mini-card accent1">
             <h4>Department</h4>
             <p>CSE, ECE, AI/DS, MBA</p>
@@ -76,55 +76,118 @@
     </section>
   </main>
 
-  <section class="features">
-    <h2>Smart matching ideas</h2>
+  <section class="features" id="sessions">
+    <h2>Upcoming Sessions</h2>
     <div class="feature-grid">
-      <div class="feature-card">
-        <div class="icon">👥</div>
-        <h3>Same Subject</h3>
-        <p>Match students taking the same course.</p>
+      <div class="feature-card session-card">
+        <div class="icon">📘</div>
+        <h3>DSA Study Group</h3>
+        <p>Tomorrow • 6:00 PM</p>
+        <small>Room A-204</small>
+        <button class="share-btn" onclick="shareInvite('https://example.com/dsa-study-group', 'DSA Study Group')">
+          Share Invite
+        </button>
       </div>
-      <div class="feature-card">
+
+      <div class="feature-card session-card">
+        <div class="icon">💻</div>
+        <h3>Web Dev Practice</h3>
+        <p>Friday • 4:30 PM</p>
+        <small>Online Session</small>
+        <button class="share-btn" onclick="shareInvite('https://example.com/web-dev-practice', 'Web Dev Practice')">
+          Share Invite
+        </button>
+      </div>
+
+      <div class="feature-card session-card">
+        <div class="icon">🤖</div>
+        <h3>AI Project Meetup</h3>
+        <p>Saturday • 11:00 AM</p>
+        <small>Lab 3</small>
+        <button class="share-btn" onclick="shareInvite('https://example.com/ai-project-meetup', 'AI Project Meetup')">
+          Share Invite
+        </button>
+      </div>
+
+      <div class="feature-card session-card">
         <div class="icon">📚</div>
-        <h3>Study Goals</h3>
-        <p>Pair people preparing for the same exams.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">⏰</div>
-        <h3>Same Time</h3>
-        <p>Suggest buddies with matching schedules.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">💬</div>
-        <h3>Connect</h3>
-        <p>Chat and start a study group quickly.</p>
+        <h3>Exam Prep Circle</h3>
+        <p>Sunday • 7:00 PM</p>
+        <small>Library Hall</small>
+        <button class="share-btn" onclick="shareInvite('https://example.com/exam-prep-circle', 'Exam Prep Circle')">
+          Share Invite
+        </button>
       </div>
     </div>
   </section>
-  <div class="tabs">
-  <button class="tab active" data-tab="upcoming">Upcoming Sessions</button>
-  <button class="tab" data-tab="past">Past Sessions</button>
-</div>
 
-<div id="upcoming" class="tab-content active">
-  <!-- upcoming session cards -->
-</div>
+  <section class="features" id="past">
+    <h2>Past Sessions</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">✅</div>
+        <h3>Python Basics</h3>
+        <p>Completed last week with 18 students.</p>
+      </div>
 
-<div id="past" class="tab-content">
-  <!-- past session cards -->
-</div>
-  <div class="session-card">
-  <h3>Data Structures Study Group</h3>
-  <p>Tomorrow • 6:00 PM</p>
-  <button onclick="shareInvite('https://your-link-here.com/session1', 'Data Structures Study Group')">
-    Share Invite
-  </button>
-  </div>
+      <div class="feature-card">
+        <div class="icon">✅</div>
+        <h3>UI Design Workshop</h3>
+        <p>Completed with full attendance.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">✅</div>
+        <h3>Placement Talk</h3>
+        <p>Industry mentor session finished.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">✅</div>
+        <h3>Hackathon Prep</h3>
+        <p>Team formation and idea planning done.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-card glass-card">
+      <h2>How sharing works</h2>
+      <p>
+        When you tap Share Invite, the app tries to open the phone’s native share panel.
+        If that is not available, it copies the session link to clipboard automatically.
+      </p>
+      <a href="index.html" class="secondary-btn">Back to Campus Dashboard</a>
+    </div>
+  </section>
 
   <footer>
     <p>© 2026 Smart Buddy Matcher</p>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    async function shareInvite(link, title) {
+      try {
+        if (navigator.share) {
+          await navigator.share({
+            title: title,
+            text: `Join my session: ${title}`,
+            url: link
+          });
+        } else {
+          await navigator.clipboard.writeText(link);
+          alert("Link copied to clipboard");
+        }
+      } catch (err) {
+        try {
+          await navigator.clipboard.writeText(link);
+          alert("Link copied to clipboard");
+        } catch (e) {
+          alert("Copy failed. Link: " + link);
+        }
+      }
+    }
+  </script>
 </body>
 </html>
