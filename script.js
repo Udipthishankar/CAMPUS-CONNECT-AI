@@ -35,3 +35,20 @@ tabs.forEach(tab => {
     document.getElementById(target).classList.add("active");
   });
 });
+async function shareInvite(link, title) {
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: title,
+        text: `Join my session: ${title}`,
+        url: link
+      });
+    } else {
+      await navigator.clipboard.writeText(link);
+      alert("Link copied to clipboard");
+    }
+  } catch (err) {
+    await navigator.clipboard.writeText(link);
+    alert("Link copied to clipboard");
+  }
+}
