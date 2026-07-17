@@ -40,3 +40,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 });
+const postBtn = document.getElementById("postBtn");
+
+if (postBtn) {
+  postBtn.addEventListener("click", () => {
+    const title = document.getElementById("postTitle").value.trim();
+    const desc = document.getElementById("postDesc").value.trim();
+    const tag = document.getElementById("postTag").value;
+
+    if (!title || !desc) {
+      alert("Please enter both title and description.");
+      return;
+    }
+
+    const feedGrid = document.getElementById("feedGrid");
+    const card = document.createElement("div");
+    card.className = "feature-card";
+    card.innerHTML = `
+      <div class="icon">📝</div>
+      <h3>${title}</h3>
+      <p>${desc}</p>
+      <span class="feed-tag">${tag}</span>
+    `;
+    feedGrid.prepend(card);
+
+    document.getElementById("postTitle").value = "";
+    document.getElementById("postDesc").value = "";
+    document.getElementById("postTag").value = "Opportunity";
+    alert("Post added to community board.");
+  });
+}
