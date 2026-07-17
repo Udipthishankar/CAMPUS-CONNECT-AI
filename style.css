@@ -453,3 +453,11 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+#sessions .mini-card,
+.session-card {
+  cursor: pointer;
+}
+
+#topics .feature-card .icon {
+  font-weight: 700;
+}
