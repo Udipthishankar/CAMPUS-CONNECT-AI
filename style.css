@@ -572,3 +572,45 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* Container to center and stack the buttons */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Spaces the buttons evenly vertically */
+  max-width: 450px; /* Controls the overall width */
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #1e0b36, #0c4a60); /* Matching dark gradient background */
+  border-radius: 16px;
+}
+
+/* Base button styles */
+.btn {
+  width: 100%;
+  padding: 16px 24px;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px; /* Makes the edges completely rounded pills */
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle depth shadow */
+  transition: transform 0.1s ease, filter 0.2s ease;
+}
+
+/* Specific button colors based on your image */
+.btn-purple {
+  background-color: #272fa1; /* Vibrant indigo/purple */
+}
+
+.btn-pink {
+  background-color: #ff4793; /* Bright vibrant pink */
+}
+
+/* Hover effect to make it feel like an actual interface */
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
