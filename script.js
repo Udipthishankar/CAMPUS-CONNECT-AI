@@ -93,3 +93,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const postBtn = document.getElementById("postBtn");
+  if (postBtn) postBtn.addEventListener("click", addPost);
+
+  const themeBtn = document.getElementById("themeBtn");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+
+      document.documentElement.style.setProperty("--bg1", isLight ? "#eef2ff" : "#0f1020");
+      document.documentElement.style.setProperty("--bg2", isLight ? "#dbeafe" : "#15162c");
+      document.documentElement.style.setProperty("--text", isLight ? "#0f172a" : "#f5f7ff");
+      document.documentElement.style.setProperty("--muted", isLight ? "#334155" : "#c8d0ff");
+      document.documentElement.style.setProperty("--card", isLight ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0.12)");
+      document.documentElement.style.setProperty("--border", isLight ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.18)");
+      themeBtn.textContent = isLight ? "Dark Mode" : "Glow Mode";
+    });
+  }
+});
+
+function filterPosts(category, btn) {
+  const posts = document.querySelectorAll(".post-card");
+  const buttons = document.querySelectorAll(".filter-btn");
+
+  buttons.forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+
+  posts.forEach(post => {
+    post.style.display = category === "all" || post.classList.contains(category) ? "block" : "none";
+  });
+}
+
+function addPost() {
+  const title = document.getElementById("postTitle").value.trim();
+  const category = document.getElementById("postCategory").value;
+  const desc = document.getElementById("postDesc").value.trim();
+  const grid = document.getElementById("postGrid");
+
+  if (!title || !desc) {
+    alert("Please enter both title and description.");
+    return;
+  }
+
+  const card = document.createElement("article");
+  card.className = `post-card ${category}`;
+  card.innerHTML = `
+    <span class="post-tag">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+    <h3>${title}</h3>
+    <p>${desc}</p>
+    <small>Posted just now</small>
+  `;
+
+  grid.prepend(card);
+  document.getElementById("postTitle").value = "";
+  document.getElementById("postDesc").value = "";
+  alert("Post shared successfully!");
+  filterPosts("all", document.querySelector(".filter-btn.active") || document.querySelector(".filter-btn"));
+}
