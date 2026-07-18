@@ -70,3 +70,26 @@ if (postBtn) {
     alert("Post added to community board.");
   });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const buddyBtn = document.getElementById("buddyBtn");
+  const microBtn = document.getElementById("microBtn");
+  const communityBtn = document.getElementById("communityBtn");
+
+  if (buddyBtn) {
+    buddyBtn.addEventListener("click", () => {
+      window.location.href = "buddy.html";
+    });
+  }
+
+  if (microBtn) {
+    microBtn.addEventListener("click", () => {
+      window.location.href = "micro.html";
+    });
+  }
+
+  if (communityBtn) {
+    communityBtn.addEventListener("click", () => {
+      window.location.href = "community.html";
+    });
+  }
+});
