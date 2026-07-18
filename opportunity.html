@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opportunity Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-shape shape1"></div>
+  <div class="bg-shape shape2"></div>
+  <div class="bg-shape shape3"></div>
+
+  <header class="navbar">
+    <div class="logo">
+      <div class="logo-badge">OP</div>
+      <div>
+        <h1>Opportunity Board</h1>
+        <p>Share student opportunities and problems</p>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="buddy.html">Buddy Matcher</a>
+      <a href="micro.html">Micro Consultations</a>
+      <a href="community.html">Community Board</a>
+    </nav>
+
+    <a class="cta-btn" href="index.html">Back</a>
+  </header>
+
+  <main class="hero">
+    <section class="hero-content">
+      <span class="tag">Student opportunity sharing</span>
+      <h2>Post internships, events, hackathons, and campus issues in one place.</h2>
+      <p>
+        This page helps students share useful updates publicly. You can post a new opportunity,
+        ask for help, or see what others have shared.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#postForm" class="primary-btn">Post Opportunity</a>
+        <a href="#posts" class="secondary-btn">View Board</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Open</h3>
+          <p>Public sharing</p>
+        </div>
+        <div class="stat-card">
+          <h3>Fast</h3>
+          <p>Quick posting</p>
+        </div>
+        <div class="stat-card">
+          <h3>Useful</h3>
+          <p>Internships & events</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-visual">
+      <div class="glass-card main-card">
+        <div class="card-top">
+          <span class="pulse"></span>
+          <h3>What students share</h3>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="mini-card accent1">
+            <h4>Internships</h4>
+            <p>Opening alerts and application links.</p>
+          </div>
+          <div class="mini-card accent2">
+            <h4>Hackathons</h4>
+            <p>Team invites and event details.</p>
+          </div>
+          <div class="mini-card accent3">
+            <h4>Problems</h4>
+            <p>Campus issues and help requests.</p>
+          </div>
+          <div class="mini-card accent4">
+            <h4>Events</h4>
+            <p>Workshops, seminars, and registrations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="features" id="postForm">
+    <h2>Create a Post</h2>
+    <div class="about-card glass-card">
+      <div class="post-form">
+        <input type="text" id="postTitle" placeholder="Post title" />
+        <select id="postCategory">
+          <option value="opportunity">Opportunity</option>
+          <option value="internship">Internship</option>
+          <option value="hackathon">Hackathon</option>
+          <option value="problem">Problem</option>
+          <option value="event">Event</option>
+        </select>
+        <textarea id="postDesc" rows="4" placeholder="Write your message here..."></textarea>
+        <button type="button" class="primary-btn" id="postBtn">Post Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="posts">
+    <h2>Latest Opportunities</h2>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterPosts('all', this)">All</button>
+      <button class="filter-btn" onclick="filterPosts('opportunity', this)">Opportunities</button>
+      <button class="filter-btn" onclick="filterPosts('internship', this)">Internships</button>
+      <button class="filter-btn" onclick="filterPosts('hackathon', this)">Hackathons</button>
+      <button class="filter-btn" onclick="filterPosts('problem', this)">Problems</button>
+      <button class="filter-btn" onclick="filterPosts('event', this)">Events</button>
+    </div>
+
+    <div class="post-grid" id="postGrid">
+      <article class="post-card internship">
+        <span class="post-tag">Internship</span>
+        <h3>Frontend Internship Opening</h3>
+        <p>Remote internship for students with HTML, CSS, and JavaScript skills.</p>
+        <small>Deadline: 25 July</small>
+      </article>
+
+      <article class="post-card hackathon">
+        <span class="post-tag">Hackathon</span>
+        <h3>AI Hackathon Team Invite</h3>
+        <p>Need 2 more members for a weekend AI hackathon project team.</p>
+        <small>Campus Lab</small>
+      </article>
+
+      <article class="post-card problem">
+        <span class="post-tag">Problem</span>
+        <h3>Library Wi-Fi Slow</h3>
+        <p>Students are reporting slow internet in the library reading area.</p>
+        <small>Needs attention</small>
+      </article>
+
+      <article class="post-card opportunity">
+        <span class="post-tag">Opportunity</span>
+        <h3>Free Resume Workshop</h3>
+        <p>Join a short workshop on resume building and interview preparation.</p>
+        <small>Saturday • 4 PM</small>
+      </article>
+
+      <article class="post-card event">
+        <span class="post-tag">Event</span>
+        <h3>Tech Fest Registration Open</h3>
+        <p>Register now for the college tech fest and project showcase.</p>
+        <small>Register before Friday</small>
+      </article>
+
+      <article class="post-card opportunity">
+        <span class="post-tag">Opportunity</span>
+        <h3>Scholarship Announcement</h3>
+        <p>Scholarship applications are now open for eligible students.</p>
+        <small>Check the deadline</small>
+      </article>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-card glass-card">
+      <h2>How this page helps</h2>
+      <p>
+        The opportunity board gives students a public place to share helpful updates and campus
+        issues in a simple, modern layout.
+      </p>
+      <a href="index.html" class="secondary-btn">Back to Home</a>
+      <a href="community.html" class="primary-btn" style="margin-left: 10px;">Community Board</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Opportunity Board</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const postBtn = document.getElementById("postBtn");
+      if (postBtn) postBtn.addEventListener("click", addPost);
+    });
+
+    function filterPosts(category, btn) {
+      const posts = document.querySelectorAll(".post-card");
+      const buttons = document.querySelectorAll(".filter-btn");
+
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      posts.forEach(post => {
+        post.style.display = (category === "all" || post.classList.contains(category)) ? "block" : "none";
+      });
+    }
+
+    function addPost() {
+      const title = document.getElementById("postTitle").value.trim();
+      const category = document.getElementById("postCategory").value;
+      const desc = document.getElementById("postDesc").value.trim();
+      const grid = document.getElementById("postGrid");
+
+      if (!title || !desc) {
+        alert("Please enter both title and description.");
+        return;
+      }
+
+      const card = document.createElement("article");
+      card.className = `post-card ${category}`;
+      card.innerHTML = `
+        <span class="post-tag">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <small>Posted just now</small>
+      `;
+
+      grid.prepend(card);
+      document.getElementById("postTitle").value = "";
+      document.getElementById("postDesc").value = "";
+      alert("Post shared successfully!");
+    }
+  </script>
+</body>
+</html>
